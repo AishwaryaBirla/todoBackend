@@ -4,42 +4,39 @@ import javax.persistence.*;
 import java.time.ZonedDateTime;
 
 @Entity
-@Table(name="todo_item")
+@Table(name = "todo_item")
 public class TodoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(name = "task", nullable = false)
+    private String task;
 
-    @Column(name = "is_completed", nullable = false)
-    private boolean isCompleted;
+    @Column(name = "completed", nullable = false)
+    private int completed;
 
-    @Column(name = "is_priority", nullable = false)
-    private boolean isPriority;
+    @Column(name = "priority", nullable = false)
+    private int priority;
 
-    @Column(name = "is_edited", nullable = false)
-    private boolean isEdited;
+    @Column(name = "edited", nullable = false)
+    private int edited;
 
     @Column(name = "created_at", nullable = false)
     private ZonedDateTime createdAt;
-
-    @Column(name = "created_at", nullable = false)
-    private ZonedDateTime modifiedAt;
+    
 
     public TodoItem() {
         super();
     }
 
-    public TodoItem(String title, boolean isCompleted, boolean isPriority, boolean isEdited, String createdAt, String modifiedAt) {
-        this.title = title;
-        this.isCompleted = isCompleted;
-        this.isPriority = isPriority;
-        this.isEdited = isEdited;
+    public TodoItem(String task, int completed, int priority, int edited, String createdAt) {
+        this.task = task;
+        this.completed = completed;
+        this.priority = priority;
+        this.edited = edited;
         this.createdAt = ZonedDateTime.parse(createdAt);
-        this.modifiedAt = ZonedDateTime.parse(modifiedAt);
-    }
+       }
 
     public long getId() {
         return id;
@@ -49,36 +46,36 @@ public class TodoItem {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTask() {
+        return task;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTask(String task) {
+        this.task = task;
     }
 
-    public boolean getIsCompleted() {
-        return isCompleted;
+    public int getCompleted() {
+        return completed;
     }
 
-    public void setIsCompleted(boolean isCompleted) {
-        this.isCompleted = isCompleted;
+    public void setCompleted(int completed) {
+        this.completed = completed;
     }
 
-    public boolean getIsPriority() {
-        return isPriority;
+    public int getPriority() {
+        return priority;
     }
 
-    public void setIsPriority(boolean isPriority) {
-        this.isPriority = isPriority;
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
-    public boolean getIsEdited() {
-        return isEdited;
+    public int getEdited() {
+        return edited;
     }
 
-    public void setIsEdited(boolean isEdited) {
-        this.isEdited = isEdited;
+    public void setEdited(int edited) {
+        this.edited = edited;
     }
 
     public ZonedDateTime getCreatedAt() {
@@ -88,13 +85,17 @@ public class TodoItem {
     public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
-
-    public ZonedDateTime getModifiedAt() {
-        return createdAt;
-    }
-
-    public void setModifiedAt(ZonedDateTime modifiedAt) {
-        this.modifiedAt = modifiedAt;
+    
+    @Override
+    public String toString() {
+        return "todos{" +
+                "id=" + id +
+                ", task='" + task + '\'' +
+                ", completed='" + completed + '\'' +
+                ", priority='" + priority + '\'' +
+                ", edited='" + edited + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                '}';
     }
 
 }
