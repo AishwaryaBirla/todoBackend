@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id "org.flywaydb.flyway" version "8.2.0"
+	id "org.flywaydb.flyway" version "8.5.13"
 }
 
 group = 'com.example'
@@ -14,11 +14,12 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.flywaydb:flyway-mysql'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.0'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+	implementation 'org.flywaydb:flyway-mysql:8.5.12'
+	implementation 'org.springframework.restdocs:spring-restdocs-mockmvc:2.0.6.RELEASE'
 	runtimeOnly 'mysql:mysql-connector-java:8.0.29'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
 }
 flyway{
 	url = "jdbc:mysql://localhost:3306/todo_backend"

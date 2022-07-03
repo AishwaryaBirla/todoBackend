@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.time.ZonedDateTime;
 
 @Entity
-@Table(name = "todo_item")
-public class TodoItem {
+@Table(name = "todo")
+public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -26,11 +26,11 @@ public class TodoItem {
     private ZonedDateTime createdAt;
     
 
-    public TodoItem() {
+    public Todo() {
         super();
     }
 
-    public TodoItem(String task, int completed, int priority, int edited, String createdAt) {
+    public Todo(String task, int completed, int priority, int edited, String createdAt) {
         this.task = task;
         this.completed = completed;
         this.priority = priority;
